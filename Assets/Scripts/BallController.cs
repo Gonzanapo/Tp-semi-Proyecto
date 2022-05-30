@@ -10,18 +10,19 @@ public class BallController : MonoBehaviour
   
     public float ballPositionx;
     public float ballPositiony;
-    public float ballPosition;
+    public Vector3 ballPosition;
+    public Vector3 ballPositionNow;
     public float ballPositionz;
 
     // Start is called before the first frame update
     void Start()
     {
-        ballPositionz = Random.Range(11, -9);
-        ballPositiony = Random.Range(5,0);
+        ballPositionz = Random.Range(1.8f, -1.8f);
+        ballPositiony = Random.Range(1.6f,0.15f);
 
         //ballPositionz = Random.Range(-4.5f, 4.5f);
 
-      transform.position = new Vector3(13, ballPositiony, ballPositionz);
+      
 
 
     }
@@ -30,8 +31,13 @@ public class BallController : MonoBehaviour
     void Update()
     {
         //transform.Translate()
+        ballPosition = (transform.position = new Vector3(3.5f, ballPositiony, ballPositionz));
 
-        
-        
+        for (Vector3 i = ballPositionNow; i != ballPosition;  )
+        {
+
+        }
+
+
     }
 }
