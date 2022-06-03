@@ -18,12 +18,5 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = pos + new Vector3(-1, 0, 0);
-        //if()
-        //{
-        //    Vector3 mousePos =  Input.mousePosition;
-        //    Debug.Log(mousePos.x);
-        //    Debug.Log(mousePos.y);
-        //}
-
     }
 }
