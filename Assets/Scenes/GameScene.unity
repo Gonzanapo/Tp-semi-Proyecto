@@ -666,7 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPoint: {fileID: 821833934}
   ball: {fileID: 7540692762754782654, guid: 2ea4f8ad46a33254e898105dba0d2be9, type: 3}
-  ballSpeed: 2
+  ballSpeed: 0.5
 --- !u!1 &690745425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,8 +1068,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121093627}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.42, y: 0.6666, z: 0.049}
-  m_LocalScale: {x: 2.4514158, y: 1.1330613, z: 0.55}
+  m_LocalPosition: {x: 4.42, y: 0.6715, z: -0.0465}
+  m_LocalScale: {x: 2.2603455, y: 1.1233071, z: 0.55}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
