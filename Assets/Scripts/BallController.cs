@@ -6,15 +6,14 @@ public class BallController : MonoBehaviour
 {
     
     public float ballSpeed;
-    public float camara;
+    float camara;
     float ballPositionz;
     float ballPositiony;
     Vector3 ballPosition;
     public GameObject ballPoint;
     public GameObject ball;
-    public float customTime;
-    public bool isCounting;
-    public float timeToDoSomething;
+    float customTime;
+    float timeToDoSomething;
     public float timeToWait;
 
                 
@@ -47,14 +46,15 @@ public class BallController : MonoBehaviour
 
         if (Time.time > timeToDoSomething)
         {
-            ballPositionz = Random.Range(1.8f, -1.8f);
-            ballPositiony = Random.Range(1.6f, 0.15f);
+            ballPositionz = Random.Range(1.3f, -1.2f);
+            ballPositiony = Random.Range(1.2f, 0.12f);
+            //ball.transform.position = new Vector3(4, ballPositiony, ballPositionz) - transform.position;
             ballPosition = new Vector3(4, ballPositiony, ballPositionz) - transform.position;
             ballPoint.transform.position = new Vector3(3, ballPositiony, ballPositionz);
             timeToDoSomething += timeToWait;
         }
+        //transform.position += ball.transform.position * Time.deltaTime * ballSpeed;
         transform.position += ballPosition * Time.deltaTime * ballSpeed;
-
 
 
 

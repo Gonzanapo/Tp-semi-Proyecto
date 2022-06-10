@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
 
     public float customTime;
     public bool isCounting;
-    public float timeToDoSomething;
+   z
     public float timeToWait;
     // Start is called before the first frame update
     void Start()
