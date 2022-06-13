@@ -1,19 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallController : MonoBehaviour
 {
-    
-    
+
+    public Text txtAtajados;
+    public Text txtGoles;
     float camara;
-  
+    int tiros = 0;
+    int atajados = 0;
+    int goles = 0;
+   
 
     Vector3 ballPosition;
 
     public GameObject ballPoint;
     public GameObject ball;
-
+    public GameObject gameOver;
     float customTime;
     float timeToDoSomething;
     float timeToWait;
@@ -25,6 +30,13 @@ public class BallController : MonoBehaviour
     Transform position;
     Transform rotation;
     GameObject clon;
+    public GameObject arquero;
+    public static GameObject _arquero;
+    public static int _tiros;
+    public static int _atajados;
+    public static int _goles;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +56,10 @@ public class BallController : MonoBehaviour
         //Destroy(ballPoint, 3);
 
     
-    
+            //for(int i = 0; i>1; i++)
+            //{
+              //  Debug.Log("Bokita papa");
+            //}
 
         customTime.ToString();
 
@@ -60,6 +75,9 @@ public class BallController : MonoBehaviour
         transform.position += ballPosition * Time.deltaTime * ballSpeed;
         */
 
+        _tiros = tiros;
+        _atajados = atajados;
+        _goles = goles;
 
         //if(Time.time > 5)
         if(Input.GetMouseButtonDown(0))
@@ -73,13 +91,38 @@ public class BallController : MonoBehaviour
             if(rbBall)
             rbBall.AddForce(direction* ballSpeed, ForceMode.Impulse);
             //Destroy(clon, 1);
+            tiros--;
+            txtAtajados.text = (" Tiros Atajados: " + atajados + " ");
+            txtGoles.text = (" Goles en Contra: " + goles + " ");
+        }
+        if (tiros == 0)
+        {
+
+            //Time.timeScale = 0;
+            //Debug.Log("Ganaste!");
+            gameOver.SetActive(true);
+           
         }
     }
     
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(clon);
+        //cuando colisione en el lugar que no es trigger q se empuje para un lado como en la vida real
+
+        //Si la pelota iba a la derecha, se empuje para alla - Si la pelota iba a la izquierda, se empuje a la izquierda.
+
+        if (other.gameObject.name == "arquero")
+        {
+            atajados++;
+            goles = tiros - atajados;
+        }
+            
     }
+
+    //private void OnTriggerEnter(Collider col)
+    //{
+     //   Destroy(clon);
+   // }
 
 
 

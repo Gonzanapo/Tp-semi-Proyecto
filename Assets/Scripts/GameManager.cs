@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-     
+
+    public Text txtAtajados;
+    public Text txtGoles;   
+    public GameObject arquero;
+    int tiros = 10;
+    public GameObject gameOver;
+    //int tiros = BallController._tiros;
+    int goles = BallController._goles;
+    int atajados = BallController._atajados;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +25,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+        
     }
+   
     public void buttonStart()
     {
 

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 pos = C.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = pos + new Vector3(-1, 0, 0);
+        transform.position = pos + new Vector3(-2, 0, 0);
     }
 }
 
