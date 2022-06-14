@@ -9,10 +9,7 @@ public class BallController : MonoBehaviour
     public Text txtAtajados;
     public Text txtGoles;
     float camara;
-    int tiros = 0;
-    int atajados = 0;
-    int goles = 0;
-   
+    
 
     Vector3 ballPosition;
 
@@ -20,8 +17,7 @@ public class BallController : MonoBehaviour
     public GameObject ball;
     public GameObject gameOver;
     float customTime;
-    float timeToDoSomething;
-    float timeToWait;
+  
 
     public float ballSpeed;
     float ballPositionz;
@@ -30,18 +26,18 @@ public class BallController : MonoBehaviour
     Transform position;
     Transform rotation;
     GameObject clon;
+    GameObject clonPoint;
     public GameObject arquero;
     public static GameObject _arquero;
-    public static int _tiros;
-    public static int _atajados;
-    public static int _goles;
+    public static int _tiros=0;
+    public static int _atajados = 0;
+    public static int _goles= 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        customTime = 0;
-        timeToDoSomething = timeToWait;
+        
 
 
 
@@ -55,13 +51,13 @@ public class BallController : MonoBehaviour
 
         //Destroy(ballPoint, 3);
 
-    
-            //for(int i = 0; i>1; i++)
-            //{
-              //  Debug.Log("Bokita papa");
-            //}
 
-        customTime.ToString();
+        //for(int i = 0; i>1; i++)
+        //{
+        //  Debug.Log("Bokita papa");
+        //}
+
+       
 
         /*if (Time.time > timeToDoSomething)
         {
@@ -75,49 +71,29 @@ public class BallController : MonoBehaviour
         transform.position += ballPosition * Time.deltaTime * ballSpeed;
         */
 
-        _tiros = tiros;
-        _atajados = atajados;
-        _goles = goles;
+        
 
         //if(Time.time > 5)
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            ballPositionz = Random.Range(1.3f, -1.2f);
-            ballPositiony = Random.Range(1.2f, 0.12f);
+            ballPositionz = Random.Range(1.5f, -1.5f);
+            ballPositiony = Random.Range(1.5f, 0.3f);
+            ballPoint.transform.position = new Vector3(2, ballPositiony, ballPositionz);
             Vector3 tempV3 = new Vector3(3.429749f, ballPositiony, ballPositionz);
             Vector3 direction = tempV3 - transform.position;
             clon = Instantiate(ball, transform.position, transform.rotation);
             rbBall = clon.GetComponent<Rigidbody>();
-            if(rbBall)
-            rbBall.AddForce(direction* ballSpeed, ForceMode.Impulse);
-            //Destroy(clon, 1);
-            tiros--;
-            txtAtajados.text = (" Tiros Atajados: " + atajados + " ");
-            txtGoles.text = (" Goles en Contra: " + goles + " ");
+            if (rbBall) {
+                rbBall.AddForce(direction* ballSpeed, ForceMode.Impulse);
+            }
+            Destroy(clon, 5);
+            _tiros++;
+          
         }
-        if (tiros == 0)
-        {
-
-            //Time.timeScale = 0;
-            //Debug.Log("Ganaste!");
-            gameOver.SetActive(true);
-           
-        }
+        
     }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        //cuando colisione en el lugar que no es trigger q se empuje para un lado como en la vida real
 
-        //Si la pelota iba a la derecha, se empuje para alla - Si la pelota iba a la izquierda, se empuje a la izquierda.
 
-        if (other.gameObject.name == "arquero")
-        {
-            atajados++;
-            goles = tiros - atajados;
-        }
-            
-    }
 
     //private void OnTriggerEnter(Collider col)
     //{

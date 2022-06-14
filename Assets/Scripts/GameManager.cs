@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     int tiros = 10;
     public GameObject gameOver;
     //int tiros = BallController._tiros;
-    int goles = BallController._goles;
-    int atajados = BallController._atajados;
+   
 
     // Start is called before the first frame update
     void Start()

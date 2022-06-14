@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public Camera C;
+    public int atajadas;
+    public Text atajadas_txt;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +22,21 @@ public class PlayerController : MonoBehaviour
         Vector3 pos = C.ScreenToWorldPoint(Input.mousePosition);
         transform.position = pos + new Vector3(-2, 0, 0);
     }
+
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.gameObject.name == "ball")
+    //    {
+    //        atajadas++;
+
+    //    }
+
+    //    atajadas_txt.text = "Tiros atajados " + atajadas.ToString();
+    //}
+
 }
+
+
 
 
 /*

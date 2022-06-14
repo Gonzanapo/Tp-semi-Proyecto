@@ -20,5 +20,8 @@ public class ballCollider : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         Destroy(gameObject);
+        BallController._atajados++;
+       
+        //BallController._goles = ;
     }
 }

@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     public Text txtTime;
-    public Text txtTimeFloored;
-    public Text txtTimeCustom;
-
+    public Text txtGoles;
+    public Text txtAtajados;
+    public GameObject gameOver;
     public float customTime;
     public bool isCounting;
     public float timeToDoSomething;
-    public float timeToWait;
+    float timeToWait = 1;
+
+    int goles = BallController._goles;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +26,10 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         float elapsedTime = Time.time;
-        txtTime.text = elapsedTime.ToString();
-        txtTimeFloored.text = Mathf.Floor(elapsedTime).ToString();
+        //txtTime.text = elapsedTime.ToString();
+        //txtTimeFloored.text = Mathf.Floor(elapsedTime).ToString();
 
-        txtTimeCustom.text = customTime.ToString();
+       // txtTimeCustom.text = customTime.ToString();
 
         if (Time.time > timeToDoSomething)
         {
@@ -35,10 +37,6 @@ public class TimeManager : MonoBehaviour
             timeToDoSomething += timeToWait;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isCounting = !isCounting;
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             customTime = 0;
@@ -50,6 +48,13 @@ public class TimeManager : MonoBehaviour
         }
 
 
-
+        if (timeToDoSomething == 60)
+        {
+            Time.timeScale = 0;
+            //Debug.Log("Ganaste!");
+            gameOver.SetActive(true);
+            txtAtajados.text = (" Tiros Atajados: " + BallController._atajados + " ");
+            txtGoles.text = (" Tiros Totales: " + BallController._tiros +"");
+        }
     }
 }
