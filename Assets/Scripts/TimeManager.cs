@@ -9,6 +9,10 @@ public class TimeManager : MonoBehaviour
     public Text txtGoles;
     public Text txtAtajados;
     public GameObject gameOver;
+    public GameObject imgMadrid;
+    public GameObject imgBombonera;
+    public GameObject ballPoint;
+    public GameObject arquero;
     public float customTime;
     public bool isCounting;
     public float timeToDoSomething;
@@ -48,11 +52,15 @@ public class TimeManager : MonoBehaviour
         }
 
 
-        if (timeToDoSomething == 60)
+        if (timeToDoSomething == 30)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             //Debug.Log("Ganaste!");
             gameOver.SetActive(true);
+            imgBombonera.SetActive(false);
+            imgMadrid.SetActive(true);
+            arquero.SetActive(false);
+            ballPoint.SetActive(false);
             txtAtajados.text = (" Tiros Atajados: " + BallController._atajados + " ");
             txtGoles.text = (" Tiros Totales: " + BallController._tiros +"");
         }
