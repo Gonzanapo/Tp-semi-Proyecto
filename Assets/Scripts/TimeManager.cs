@@ -18,7 +18,7 @@ public class TimeManager : MonoBehaviour
     public float timeToDoSomething;
     float timeToWait = 1;
 
-    int goles = BallController._goles;
+    //int goles = BallController._goles;
     // Start is called before the first frame update
     void Start()
     {

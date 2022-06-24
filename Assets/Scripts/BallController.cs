@@ -83,9 +83,7 @@ public class BallController : MonoBehaviour
             Vector3 direction = tempV3 - transform.position;
             clon = Instantiate(ball, transform.position, transform.rotation);
             rbBall = clon.GetComponent<Rigidbody>();
-            if (rbBall) {
-                rbBall.AddForce(direction* ballSpeed, ForceMode.Impulse);
-            }
+            rbBall.AddForce(direction * ballSpeed, ForceMode.Impulse);
             Destroy(clon, 5);
             _tiros++;
           
